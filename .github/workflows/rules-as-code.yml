@@ -6,7 +6,7 @@ env:
   REGISTRY: ghcr.io
   IMAGE_NAME: markcalvert/salsa-images/rules-as-code
 
-# jobs:
+jobs:
 #   test:
 #     runs-on: ubuntu-latest
 #     steps:
