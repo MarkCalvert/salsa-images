@@ -4,7 +4,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}/rules-as-code
+  IMAGE_NAME: https://github.com/markcalvert/salsa-images/rules-as-code
 
 jobs:
   test:
