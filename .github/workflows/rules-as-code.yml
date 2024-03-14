@@ -22,7 +22,7 @@ jobs:
           docker exec rules-as-code sh -c 'openfisca test --country-package openfisca_rules openfisca-rules/openfisca_rules/tests'
           docker stop rules-as-code
 
-  deploy:
+  deploy-amd:
     needs: test
     runs-on: ubuntu-latest
     permissions:
