@@ -61,7 +61,7 @@ jobs:
 
   deploy-arm:
     # needs: test
-    runs-on: macos-latest
+    runs-on: macos-14
     permissions:
       contents: read
       packages: write
@@ -72,7 +72,7 @@ jobs:
       - name: Install docker
         run: |
           brew install --cask docker
-          brew services start docker
+          open /Applications/Docker.app
 
       # - name: Set up QEMU
       #   uses: docker/setup-qemu-action@v3
