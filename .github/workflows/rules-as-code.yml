@@ -71,7 +71,7 @@ jobs:
 
       - name: Install docker
         run: |
-          brew install docker
+          brew install --cask docker
           brew services start docker
 
       # - name: Set up QEMU
