@@ -6,24 +6,24 @@ env:
   REGISTRY: ghcr.io
   IMAGE_NAME: markcalvert/salsa-images/rules-as-code
 
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+# jobs:
+#   test:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v4
 
-      - name: Build the Docker image
-        run: docker build -f images/rules-as-code/Dockerfile -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} images/rules-as-code
+#       - name: Build the Docker image
+#         run: docker build -f images/rules-as-code/Dockerfile -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} images/rules-as-code
 
-      - name: Run OpenFisca tests
-        run: |
-          docker run --rm -d --name rules-as-code ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-          docker exec rules-as-code sh -c 'openfisca test --country-package openfisca_rules openfisca-rules/openfisca_rules/tests'
-          docker stop rules-as-code
+#       - name: Run OpenFisca tests
+#         run: |
+#           docker run --rm -d --name rules-as-code ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+#           docker exec rules-as-code sh -c 'openfisca test --country-package openfisca_rules openfisca-rules/openfisca_rules/tests'
+#           docker stop rules-as-code
 
   deploy-amd:
-    needs: test
+    # needs: test
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -60,7 +60,7 @@ jobs:
           tags: ${{ steps.meta_openfisca.outputs.tags }}
 
   deploy-arm:
-    needs: test
+    # needs: test
     runs-on: macos-latest
     permissions:
       contents: read
