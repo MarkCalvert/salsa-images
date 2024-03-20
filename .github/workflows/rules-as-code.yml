@@ -3,7 +3,7 @@ on:
   - push
 
 env:
-  REGISTRY_IMAGE: ghcr.io/salsa-images/rules-as-code
+  REGISTRY_IMAGE: ghcr.io/markcalvert/salsa-images/rules-as-code
 
 jobs:
   test:
